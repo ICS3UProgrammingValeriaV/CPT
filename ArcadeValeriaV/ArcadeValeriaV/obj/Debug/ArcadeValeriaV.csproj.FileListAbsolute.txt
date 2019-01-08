@@ -1,0 +1,10 @@
+C:\Users\Admin\Desktop\ICS3O - Programming\CPT\ArcadeValeriaV\ArcadeValeriaV\bin\Debug\ArcadeValeriaV.exe.config
+C:\Users\Admin\Desktop\ICS3O - Programming\CPT\ArcadeValeriaV\ArcadeValeriaV\bin\Debug\ArcadeValeriaV.exe
+C:\Users\Admin\Desktop\ICS3O - Programming\CPT\ArcadeValeriaV\ArcadeValeriaV\bin\Debug\ArcadeValeriaV.pdb
+C:\Users\Admin\Desktop\ICS3O - Programming\CPT\ArcadeValeriaV\ArcadeValeriaV\obj\Debug\ArcadeValeriaV.csprojAssemblyReference.cache
+C:\Users\Admin\Desktop\ICS3O - Programming\CPT\ArcadeValeriaV\ArcadeValeriaV\obj\Debug\ArcadeValeriaV.Form1.resources
+C:\Users\Admin\Desktop\ICS3O - Programming\CPT\ArcadeValeriaV\ArcadeValeriaV\obj\Debug\ArcadeValeriaV.Properties.Resources.resources
+C:\Users\Admin\Desktop\ICS3O - Programming\CPT\ArcadeValeriaV\ArcadeValeriaV\obj\Debug\ArcadeValeriaV.csproj.GenerateResource.cache
+C:\Users\Admin\Desktop\ICS3O - Programming\CPT\ArcadeValeriaV\ArcadeValeriaV\obj\Debug\ArcadeValeriaV.csproj.CoreCompileInputs.cache
+C:\Users\Admin\Desktop\ICS3O - Programming\CPT\ArcadeValeriaV\ArcadeValeriaV\obj\Debug\ArcadeValeriaV.exe
+C:\Users\Admin\Desktop\ICS3O - Programming\CPT\ArcadeValeriaV\ArcadeValeriaV\obj\Debug\ArcadeValeriaV.pdb
