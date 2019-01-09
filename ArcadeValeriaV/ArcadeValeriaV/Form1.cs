@@ -14,9 +14,17 @@ namespace ArcadeValeriaV
     {
         //declare global variables
         int counter = 1;
+        int speed = 10;
+        int score = 0;
+        List<int>arrayPosition = new List<int>();
+
         public Form1()
         {
             InitializeComponent();
+            arrayPosition.Add(303) ;
+            arrayPosition.Add(202);
+            arrayPosition.Add(101);
+            arrayPosition.Add(0);
         }
 
         private void pictureBox4_Click(object sender, EventArgs e)
@@ -24,13 +32,20 @@ namespace ArcadeValeriaV
             if (counter == 4)
             {
                 counter = 1;
+                score++;
                 pictureBox4.Location = new Point(pictureBox4.Location.X, -75);
                 tmrFourthMove.Start();
+                if(score == 5)
+                {
+                    speed = speed + 10;
+                }
 
             }
             else
             {
+                tmrFirstMove.Stop();
                 MessageBox.Show("U lost");
+   
             }
         }
 
@@ -38,13 +53,25 @@ namespace ArcadeValeriaV
         {
             if (counter == 1)
             {
+                int xPosition, index;
+                Random generateIndex = new Random();
+                index = generateIndex.Next(0, arrayPosition.Count + 1);
+                xPosition = arrayPosition[index];
+                arrayPosition.RemoveAt(index);
+                /////////////////
                 counter++;
-                pictureBox1.Location = new Point(pictureBox1.Location.X, -75);
+                score++;
+                pictureBox1.Location = new Point(xPosition, -75);
                 tmrFirstMove.Start();
-                
+                if (score == 5)
+                {
+                    speed = speed + 10;
+                }
+
             }
             else
             {
+                tmrFirstMove.Stop();
                 MessageBox.Show("U lost");
             }
         }
@@ -57,10 +84,12 @@ namespace ArcadeValeriaV
         }
         private void tmrFirstMove_Tick( object sender, EventArgs e)//ref PictureBox pic1, ref PictureBox pic2, ref PictureBox
         {
-            pictureBox1.Location = new Point(pictureBox1.Location.X,pictureBox1.Location.Y + 10);
-            pictureBox2.Location = new Point(pictureBox2.Location.X, pictureBox2.Location.Y + 10);
-            pictureBox3.Location = new Point(pictureBox3.Location.X, pictureBox3.Location.Y + 10);
-            pictureBox4.Location = new Point(pictureBox4.Location.X, pictureBox4.Location.Y + 10);
+
+            pictureBox1.Location = new Point(pictureBox1.Location.X,pictureBox1.Location.Y + speed);
+            pictureBox2.Location = new Point(pictureBox2.Location.X, pictureBox2.Location.Y + speed);
+            pictureBox3.Location = new Point(pictureBox3.Location.X, pictureBox3.Location.Y + speed);
+            pictureBox4.Location = new Point(pictureBox4.Location.X, pictureBox4.Location.Y + speed);
+
             if (pictureBox1.Location.Y >=470)
             {
                 tmrFirstMove.Stop();
@@ -126,13 +155,19 @@ namespace ArcadeValeriaV
             if (counter == 2)
             {
                 counter++;
+                score++;
                 pictureBox2.Location = new Point(pictureBox2.Location.X, -75);
                 tmrFirstMove.Start();
                 //tmrFirstMove.Start(ref pictureBox1, ref pictureBox3, ref pictureBox4);
+                if (score == 5)
+                {
+                    speed = speed + 10;
+                }
 
             }
             else
             {
+                tmrFirstMove.Stop();
                 MessageBox.Show("U lost");
             }
         }
@@ -142,13 +177,19 @@ namespace ArcadeValeriaV
             if (counter == 3)
             {
                 counter++;
+                score++;
                 pictureBox3.Location = new Point(pictureBox3.Location.X, -75);
                 tmrFirstMove.Start();
                 //tmrFirstMove.Start(ref pictureBox1, ref pictureBox3, ref pictureBox4);
+                if (score == 5)
+                {
+                    speed = speed + 10;
+                }
 
             }
             else
             {
+                tmrFirstMove.Stop();
                 MessageBox.Show("U lost");
             }
         }
