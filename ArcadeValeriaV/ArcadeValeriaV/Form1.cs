@@ -52,6 +52,11 @@ namespace ArcadeValeriaV
         public Form1()
         {
             InitializeComponent();
+            //SET THE INITIAL VALUE OF TEH TILES
+            //declare local variables
+            int xPosition, index;
+            Random generateIndex = new Random();
+
             //////////////////////////
             //LIST - Add elements
             /////////////////////////
@@ -220,48 +225,7 @@ namespace ArcadeValeriaV
                 soundCounter = 1;
             }
         }
-        private void pictureBox4_Click(object sender, EventArgs e)
-        {
-            //check if the rights button was pressed
-            if (counter == 4)
-            {
-                //play the sound
-                PlayMusic();
-                //declare local variables
-                int xPosition, index;
-                Random generateIndex = new Random();
-                //Generate a random index
-                index = generateIndex.Next(0, arrayPosition.Count);
-                //get the elemnt from the list
-                xPosition = arrayPosition[index];
-                //set the counter to be equal to 1
-                counter = 1;
-                //increment the score
-                score++;
-                //set the new position of the tile
-                pictureBox4.Location = new Point(xPosition, pictureBox3.Location.Y - 140);
-                //start the timer
-                tmrFourthMove.Start();
-                //check if the speed should be incremented
-                if(score == 5)
-                {
-                    speed = speed + 10;
-                }
-                else if (score == 20)
-                {
-                    speed = speed + 10;
-                }
-
-            }
-            //if the user presses the wrong tile, stop the timer and display the "You lose" text
-            else
-            {
-                tmrFirstMove.Stop();
-                MessageBox.Show("U lost");
-   
-            }
-        }
-
+       
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             //check if the rights button was pressed
@@ -301,80 +265,6 @@ namespace ArcadeValeriaV
                 tmrFirstMove.Stop();
                 MessageBox.Show("U lost");
             }            
-        }
-
-        private void moveTiles(ref PictureBox pic1, ref PictureBox pic2, ref PictureBox pic3)
-        {
-            pic1.Location = new Point(pictureBox2.Location.X, pictureBox2.Location.Y + 10);
-            pic2.Location = new Point(pictureBox3.Location.X, pictureBox3.Location.Y + 10);
-            pic3.Location = new Point(pictureBox4.Location.X, pictureBox4.Location.Y + 10);
-        }
-        private void tmrFirstMove_Tick( object sender, EventArgs e)//ref PictureBox pic1, ref PictureBox pic2, ref PictureBox
-        {
-            pictureBox1.Location = new Point(pictureBox1.Location.X,pictureBox1.Location.Y + speed);
-            pictureBox2.Location = new Point(pictureBox2.Location.X, pictureBox2.Location.Y + speed);
-            pictureBox3.Location = new Point(pictureBox3.Location.X, pictureBox3.Location.Y + speed);
-            pictureBox4.Location = new Point(pictureBox4.Location.X, pictureBox4.Location.Y + speed);
-
-            if (pictureBox1.Location.Y >=470)
-            {
-                tmrFirstMove.Stop();
-                MessageBox.Show("Ulose");
-            }
-            else if (pictureBox2.Location.Y >= 470)
-            {
-                tmrFirstMove.Stop();
-                MessageBox.Show("Ulose");
-            }
-            else if (pictureBox3.Location.Y >= 470)
-            {
-                tmrFirstMove.Stop();
-                MessageBox.Show("Ulose");
-            }
-            else if (pictureBox4.Location.Y >= 470)
-            {
-                tmrFirstMove.Stop();
-                MessageBox.Show("Ulose");
-                
-            }
-        }
-        private void tmrThirdMove_Tick(object sender, EventArgs e)
-        {
-            
-        }
-        private void tmrFourthMove_Tick(object sender, EventArgs e)
-        {
-
-        }
-        private void tmrSecondMove_Tick(object sender, EventArgs e)
-        {
-            /*pictureBox2.Location = new Point(pictureBox2.Location.X, pictureBox2.Location.Y + 10);
-            pictureBox1.Location = new Point(pictureBox1.Location.X, pictureBox1.Location.Y + 10);
-            pictureBox3.Location = new Point(pictureBox3.Location.X, pictureBox3.Location.Y + 10);
-            pictureBox4.Location = new Point(pictureBox4.Location.X, pictureBox4.Location.Y + 10);
-            
-            if (pictureBox3.Location.Y >= 342)
-            {
-                Console.WriteLine("Stop");
-                tmrSecondMove.Stop();
-            }
-            else
-            {
-               if (pictureBox2.Location.Y >= 470)
-               {
-                    tmrSecondMove.Stop();
-                    MessageBox.Show("U lost");
-               }
-               else
-                {
-
-                }
-            
-            else if (pictureBox2.Location.Y != -75)
-            {
-                tmrSecondMove.Stop();
-                MessageBox.Show("U lost");
-            }*/
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)
@@ -437,7 +327,7 @@ namespace ArcadeValeriaV
                 if (score == 5)
                 {
                     speed = speed + 10;
-                    
+
                 }
                 else if (score == 20)
                 {
@@ -452,6 +342,91 @@ namespace ArcadeValeriaV
             }
         }
 
-       
+        private void pictureBox4_Click(object sender, EventArgs e)
+        {
+            //check if the rights button was pressed
+            if (counter == 4)
+            {
+                //play the sound
+                PlayMusic();
+                //declare local variables
+                int xPosition, index;
+                Random generateIndex = new Random();
+                //Generate a random index
+                index = generateIndex.Next(0, arrayPosition.Count);
+                //get the elemnt from the list
+                xPosition = arrayPosition[index];
+                //set the counter to be equal to 1
+                counter = 1;
+                //increment the score
+                score++;
+                //set the new position of the tile
+                pictureBox4.Location = new Point(xPosition, pictureBox3.Location.Y - 140);
+                //start the timer
+                tmrFourthMove.Start();
+                //check if the speed should be incremented
+                if (score == 5)
+                {
+                    speed = speed + 10;
+                }
+                else if (score == 20)
+                {
+                    speed = speed + 10;
+                }
+
+            }
+            //if the user presses the wrong tile, stop the timer and display the "You lose" text
+            else
+            {
+                tmrFirstMove.Stop();
+                MessageBox.Show("U lost");
+
+            }
+        }
+
+
+        private void tmrFirstMove_Tick( object sender, EventArgs e)//ref PictureBox pic1, ref PictureBox pic2, ref PictureBox
+        {
+            //move the tiles
+            pictureBox1.Location = new Point(pictureBox1.Location.X,pictureBox1.Location.Y + speed);
+            pictureBox2.Location = new Point(pictureBox2.Location.X, pictureBox2.Location.Y + speed);
+            pictureBox3.Location = new Point(pictureBox3.Location.X, pictureBox3.Location.Y + speed);
+            pictureBox4.Location = new Point(pictureBox4.Location.X, pictureBox4.Location.Y + speed);
+
+            //if the tiles went over the scree, end the game
+            if (pictureBox1.Location.Y >=470)
+            {
+                tmrFirstMove.Stop();
+                MessageBox.Show("Ulose");
+            }
+            else if (pictureBox2.Location.Y >= 470)
+            {
+                tmrFirstMove.Stop();
+                MessageBox.Show("Ulose");
+            }
+            else if (pictureBox3.Location.Y >= 470)
+            {
+                tmrFirstMove.Stop();
+                MessageBox.Show("Ulose");
+            }
+            else if (pictureBox4.Location.Y >= 470)
+            {
+                tmrFirstMove.Stop();
+                MessageBox.Show("Ulose");
+                
+            }
+        }
+        private void tmrThirdMove_Tick(object sender, EventArgs e)
+        {
+            
+        }
+        private void tmrFourthMove_Tick(object sender, EventArgs e)
+        {
+
+        }
+        private void tmrSecondMove_Tick(object sender, EventArgs e)
+        {
+           
+        }
     }
 }
